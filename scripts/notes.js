@@ -39,9 +39,12 @@ function addNote(note) {
   singleNote.classList.add('singleNote');
   const singleNoteTitle = document.createElement('h2');
   const singleNoteBody = document.createElement('p');
+
+  // Set up delete button
   const deleteBtn = document.createElement('button');
   deleteBtn.innerText = "Delete Note";
   deleteBtn.classList.add('deleteNote');
+  deleteBtn.addEventListener('click', removeNote);
 
   singleNoteTitle.innerText = note.title;
   singleNoteBody.innerText = note.body;
@@ -52,3 +55,7 @@ function addNote(note) {
 };
 
 // Add fxnality to delete note btn
+function removeNote() {
+  const currentNote = this.parentElement;
+  currentNote.remove();
+}
